@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Image from "../assets/image.png";
-import Logo from "../assets/logo.png";
-import GoogleSvg from "../assets/icons8-google.svg";
-import { FaEye } from "react-icons/fa6";
-import { FaEyeSlash } from "react-icons/fa6";
-import "../styles/Login.css";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import Image from '../assets/image.png';
+import Logo from '../assets/logo.png';
+import GoogleSvg from '../assets/icons8-google.svg';
+import { FaEye } from 'react-icons/fa6';
+import { FaEyeSlash } from 'react-icons/fa6';
+import '../styles/Login.css';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import TypewriterComponent from 'typewriter-effect';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [ token, setToken ] = useState(JSON.parse(localStorage.getItem("auth")) || "");
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem('auth')) || ''
+  );
   const navigate = useNavigate();
-
-
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -28,46 +29,55 @@ const Login = () => {
       };
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/v1/login",
+          'http://localhost:3000/api/v1/login',
           formData
         );
         localStorage.setItem('auth', JSON.stringify(response.data.token));
-        toast.success("Login successfull");
-        navigate("/dashboard");
+        toast.success('Login successfull');
+        navigate('/dashboard');
       } catch (err) {
         console.log(err);
-        toast.error(err.message);
+        toast.error('Please enter your correct info.');
       }
     } else {
-      toast.error("Please fill all inputs");
+      toast.error('Please fill all inputs.');
     }
   };
 
   useEffect(() => {
-    if(token !== ""){
-      toast.success("You already logged in");
-      navigate("/dashboard");
+    if (token !== '') {
+      toast.success('You already logged in');
+      navigate('/dashboard');
     }
   }, []);
 
   return (
     <div className="login-main">
-      <div className="login-left">
-        <img src={Image} alt="" />
+      <div className="login-left fade-effect">
+        <img id="img-home" src={Image} alt="" />
       </div>
       <div className="login-right">
         <div className="login-right-container">
-          <div className="login-logo">
+          <div className="login-logo fade-effect">
             <img src={Logo} alt="" />
           </div>
           <div className="login-center">
-            <h2>Welcome back!</h2>
-            <p>Please enter your details</p>
+            <h2 className="animate-character">Welcome to my website!</h2>
+            <div className="greeting">
+              <TypewriterComponent
+                options={{
+                  strings: ['Please enter your details'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </div>
+
             <form onSubmit={handleLoginSubmit}>
               <input type="email" placeholder="Email" name="email" />
               <div className="pass-input-div">
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   name="password"
                 />
@@ -99,10 +109,6 @@ const Login = () => {
               </div>
               <div className="login-center-buttons">
                 <button type="submit">Log In</button>
-                <button type="submit">
-                  <img src={GoogleSvg} alt="" />
-                  Log In with Google
-                </button>
               </div>
             </form>
           </div>

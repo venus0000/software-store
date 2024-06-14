@@ -1,62 +1,95 @@
-.landing-main{
-    font-size: 30px;
-    height: 100vh;
-    width: 100%;
+.landing-main {
+  font-size: 30px;
+  height: 100vh;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
 }
 
-.landing-login-button{
-    background: black;
-    color: white;
-    border: 3px solid black;
-    transition: background 1s linear 0ms;
-    transition: color 500ms linear 0ms;
+.landing-login-button {
+  background: chocolate;
+  color: white;
+  border: 3px solid chocolate;
+  transition: background 1s linear 0ms;
+  transition: color 500ms linear 0ms;
 
-    width: 500px;
-    padding: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    border-radius: 30px;
-    font-weight: 600;
-    margin-top: 10px;
+  width: 300px;
+  padding: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 200px;
 
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.landing-register-button {
+  background: chocolate;
+  color: white;
+  border: 3px solid chocolate;
+  transition: background 1s linear 0ms;
+  transition: color 500ms linear 0ms;
+
+  width: 300px;
+  padding: 16px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.landing-register-button:hover {
+  color: #333;
+  background-color: white;
+}
+
+.landing-login-button:hover {
+  color: #333;
+  background-color: white;
+}
+h1 {
+  color: rgb(226, 57, 147);
+  margin-bottom: 20px;
+}
+.greeting {
+  color: cyan;
+}
+.animate-character {
+  font-family: 'Montserrat', sans-serif;
+  /* text-transform: uppercase; */
+  background-image: linear-gradient(
+    -225deg,
+    #ffffff 0%,
+    #0035a7 29%,
+    #3e5af8 67%,
+    #470d7b 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+}
+@keyframes textclip {
+  to {
+    background-position: 200% center;
   }
-
-  .landing-register-button{
-    background: black;
-    color: white;
-    border: 3px solid black;
-    transition: background 1s linear 0ms;
-    transition: color 500ms linear 0ms;
-
-    width: 500px;
-    padding: 16px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 30px;
-    font-weight: 600;
-    margin-top: 10px;
-
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  
-  .landing-register-button:hover{
-    color: #333;
-    background-color: white;
-  }
-
-  .landing-login-button:hover{
-    color: #333;
-    background-color: white;
-  }
+}

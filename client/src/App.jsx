@@ -1,11 +1,17 @@
-
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Dashboard, HomeLayout, Landing, Login, Logout, Register } from "./pages";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+  Dashboard,
+  HomeLayout,
+  Landing,
+  Login,
+  Logout,
+  Register,
+} from './pages';
 import { ToastContainer, toast } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <HomeLayout />,
     children: [
       {
@@ -13,34 +19,32 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: "login",
+        path: 'login',
         element: <Login />,
       },
       {
-        path: "register",
+        path: 'register',
         element: <Register />,
       },
       {
-        path: "dashboard",
+        path: 'dashboard',
         element: <Dashboard />,
       },
       {
-        path: "logout",
+        path: 'logout',
         element: <Logout />,
-      }
+      },
     ],
   },
 ]);
 
 function App() {
-
-
   return (
     <>
-        <RouterProvider router={router} />
-        <ToastContainer position='top-center' />
+      <RouterProvider router={router} />
+      <ToastContainer position="top-center" />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
